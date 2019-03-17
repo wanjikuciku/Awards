@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'bootstrap3',
     'projects',
     'tinymce',
+    'rest_framework',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -78,7 +79,7 @@ WSGI_APPLICATION = 'awards.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends..postgresql',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'awwards',
         'USER': 'lorna',
         'PASSWORD':'milkshake',
@@ -111,7 +112,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Africa/Nairobi'
 
 USE_I18N = True
 
