@@ -34,6 +34,9 @@ INSTALLED_APPS = [
     'bootstrap3',
     'projects',
     'tinymce',
+    'pyuploadcare.dj',
+    'bootstrap4',
+    'url_or_relative_url_field',
     'rest_framework',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -88,6 +91,10 @@ DATABASES = {
     }
 }
 
+UPLOADCARE = {
+'pub_key': '499b57c332835b626a4e',
+'secret': 'f26ad9d786922920b31b',
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators

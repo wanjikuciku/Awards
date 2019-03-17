@@ -1,13 +1,15 @@
 from django.db import models
 from django.contrib.auth.models import User
 from datetime import datetime
+from url_or_relative_url_field.fields import URLOrRelativeURLField
+from pyuploadcare.dj.models import ImageField
 from tinymce.models import HTMLField
 
 
 # Create your models here.
 class UserProfile(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE)
-    profile_pic = models.ImageField(upload_to='profile_photos',null=True,blank=True)
+    profile_pic = ImageField()
     bio = HTMLField()
     contact=models.CharField(max_length=12)
     projects = models.ForeignKey('Project',on_delete=models.CASCADE,null=True)
@@ -23,13 +25,14 @@ class UserProfile(models.Model):
         self.save()
 
     def __str__(self):
-        return self.user
+        return self.user.username
 
 
 class Project(models.Model):
     title = models.CharField(max_length=40)
     description = HTMLField()
-    landing_page = models.ImageField(upload_to='landing_pages')
+    landing_page = ImageField()
+    live_site = URLOrRelativeURLField()
     user = models.ForeignKey(User,null=True,blank=True,on_delete=models.CASCADE)
     design = models.IntegerField(choices=list(zip(range(0, 11), range(0, 11))), default=0)
     usability = models.IntegerField(choices=list(zip(range(0, 11), range(0, 11))), default=0)
