@@ -11,8 +11,9 @@ urlpatterns=[
     url(r'^new_project/',views.send_project, name='send_project'),
     url(r'^search/',views.search_project,name='search_project'),
     url(r'^project/(\d+)',views.project,name='project'),
-    url(r'^api/profiles/$',views.ProfileList.as_view(),name='profile_list'),
-    url(r'^api/projects/$',views.ProjectList.as_view(),name='project_list'),
+    url(r'^api/profile/$',views.ProfileList.as_view(),name='profile_list'),
+    url(r'^api/project/$', views.ProjectList.as_view()),
+    
 ]
 
 if settings.DEBUG:

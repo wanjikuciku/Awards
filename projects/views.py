@@ -5,11 +5,11 @@ from .forms import NewProjectForm,VoteForm,ProfileEditForm
 from django.urls import reverse
 from django.http  import HttpResponse,Http404,HttpResponseRedirect,JsonResponse
 from django.contrib.auth.models import User
+from django.db.models import Max,F
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from rest_framework import status
 from .serializer import ProfileSerializer,ProjectSerializer
-from django.db.models import Max,F
-
 
 # Create your views here.
 def index(request):
@@ -25,7 +25,7 @@ def index(request):
 @login_required(login_url='/accounts/login/')
 def profile(request):
     profile = UserProfile.objects.filter(user = request.user).first()
-    projects = Project.objects.filter(user=profile.user).all()
+    projects = Project.objects.filter()
 
     if request.method == 'POST':
         form = ProfileEditForm(request.POST,instance=profile,files=request.FILES)
@@ -98,12 +98,12 @@ def project(request,project_id):
 
 class ProfileList(APIView):
     def get(self,request,format=None):
-        all_users = UserProfile.objects.all()
-        serializers = ProfileSerializer(all_users,many=True)
+        all_profile = UserProfile.objects.all()
+        serializers = ProfileSerializer(all_profile,many=True)
         return Response(serializers.data)
 
 class ProjectList(APIView):
-    def get(self,request,format=None):
-        all_projects = Project.objects.all()
-        serializers = ProjectSerializer(all_projects,many=True)
+    def get(self, request, format=None):
+        all_project = Project.objects.all()
+        serializers = ProjectSerializer(all_project, many=True)
         return Response(serializers.data)
