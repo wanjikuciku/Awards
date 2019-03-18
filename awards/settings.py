@@ -98,20 +98,20 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'awards.wsgi.application'
-
+AUTH_PROFILE_MODULE = 'accounts.Profile'
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'awwards',
-        'USER': 'lorna',
-        'PASSWORD':'milkshake',
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'awwards',
+#         'USER': 'lorna',
+#         'PASSWORD':'milkshake',
 
-    }
-}
+#     }
+# }
 
 UPLOADCARE = {
 'pub_key': '499b57c332835b626a4e',
@@ -150,13 +150,9 @@ USE_L10N = True
 
 USE_TZ = True
 
-REST_FRAMEWORK = {
-    # Use Django's standard `django.contrib.auth` permissions,
-    # or allow read-only access for unauthenticated users.
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
-    ]
-}
+#login redirect
+LOGIN_REDIRECT_URL = "home"
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/

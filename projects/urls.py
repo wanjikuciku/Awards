@@ -12,7 +12,7 @@ urlpatterns=[
     url(r'^search/',views.search_project,name='search_project'),
     url(r'^project/(\d+)',views.project,name='project'),
     url(r'^api/profile/$',views.ProfileList.as_view(),name='profile_list'),
-    url(r'^api/project/$', views.ProjectList.as_view()),
+    url(r'^api/project/$', views.ProjectList.as_view(),name="project_list"),
     
 ]
 

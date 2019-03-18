@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
-from .models import UserProfile,Project
+from .models import Profile,Project
 from .forms import NewProjectForm,VoteForm,ProfileEditForm
 from django.urls import reverse
 from django.http  import HttpResponse,Http404,HttpResponseRedirect,JsonResponse
@@ -24,7 +24,7 @@ def index(request):
 
 @login_required(login_url='/accounts/login/')
 def profile(request):
-    profile = UserProfile.objects.filter(user = request.user).first()
+    profile = Profile.objects.filter(user = request.user).first()
     projects = Project.objects.filter()
 
     if request.method == 'POST':
@@ -98,7 +98,7 @@ def project(request,project_id):
 
 class ProfileList(APIView):
     def get(self,request,format=None):
-        all_profile = UserProfile.objects.all()
+        all_profile = Profile.objects.all()
         serializers = ProfileSerializer(all_profile,many=True)
         return Response(serializers.data)
 

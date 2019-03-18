@@ -49,7 +49,7 @@
 
           <div class="row">
             <div class="col-md-6">
-              <h4>Contact Details</h4>
+              <h4 ></i> Email : <a href="emailto:{{user.email}}">{{user.email}}</h4>
               <ul>
                 <li><a href="https://mail.google.com/mail/?view=cm&fs=1&to={{profile.user.email}}" target="_blank">{{profile.user.email}}</a></li>
                 <li>{{profile.contact}}</li>
@@ -59,7 +59,7 @@
               <h4>Posted Projects</h4>
               <ul>
                 {% for project in projects %}
-                <li>{{project.project_title}}</li>
+                <li>{{project.title}} :{{project.poster}}:{{project.description}} </li>
                 {% endfor %}
               </ul>
             </div>
