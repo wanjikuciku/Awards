@@ -1,4 +1,4 @@
-from .models import Project,UserProfile
+from .models import Project,Profile
 from django import forms
 from django.contrib.auth.models import User
 from django.forms import ModelForm
@@ -18,5 +18,5 @@ class VoteForm(ModelForm):
 
 class ProfileEditForm(ModelForm):
     class Meta:
-        model = UserProfile
+        model = Profile
         fields = ('profile_pic','bio')
