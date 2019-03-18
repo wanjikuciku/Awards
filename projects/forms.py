@@ -1,7 +1,8 @@
 from .models import Project,UserProfile
+from django import forms
 from django.contrib.auth.models import User
-from .models import UserProfile,Project
 from django.forms import ModelForm
+from django.core import validators
 
 class NewProjectForm(ModelForm):
     class Meta:
