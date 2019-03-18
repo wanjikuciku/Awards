@@ -15,7 +15,7 @@ To start using this project use the following commands:
 
 * The repo comes in a zipped or compressed format. Extract to your prefered location and open it.
 
-* open your terminal and navigate to instagram then create a virtual environment.For detailed guide refer here
+* open your terminal and navigate to awards then create a virtual environment.For detailed guide refer here
 
 * To run the app, you'll have to run the following commands in your terminal
 
