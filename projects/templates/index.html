@@ -1,30 +1,56 @@
-{% extends 'base.html' %}
-{% load bootstrap4 %}
-{% block content %}
-<div class="container-fluid">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
 
-  <h3 class="text-center header">Other Projects</h3>
-  <hr class="text-muted">
-  <div class="projects row">
-    {% for project in projects %}
-    <div class="other-projects col-md-3">
-      <img class="landing-page" src="{{project.landing_page.url}}" alt="">
-      <div class="project-text">
-        <h3 class="text-center">{{project.project_title}}</h3>
-        <div class="d-flex justify-content-between">
-          <a href="{% url 'project' project.pk %}" class="btn">See More</a>
-          <a target="_blank" href="{{project.live_site}}" class="btn">Visit Site</a>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="../../static/css/styles.css">
+    </head>
+    <body>
+        {% include 'navbar.html' %}
+        <div class="container mt-40">
+            <h3 class="text-center">Featured Projects</h3>
+            <hr>
+            <div class="row mt-3">
+                {% for project in projects %}
+                <div class="col-md-4 m-auto" style="padding-bottom:30px;">
+                    <div class="box3">
+                        <img src="{{project.landing_page.url}}" width ="100%"  >
+                        <div class="box-content">
+                            <h3 class="title">{{project.title}}</h3>
+                            <p class="description">
+                                {{project.description}}
+                            </p>
+                            <a class="see-more" href="{% url 'project' project.pk %}">see more</a>
+                            <ul class="icon">
+                                <li><a style='color:white;' href="{{project.live_site}}" class="fa fa-link"></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                {% endfor %}
+            </div>
         </div>
-        <ul class="d-flex justify-content-between">
-          <li>Design: {{project.design}}</li>
-          <li>Usability: {{project.usability}}</li>
-          <li>Content: {{project.content}}</li>
-        </ul>
-        <p class="text-center">By: <span>{{project.user.username}}</span></p>
-      </div>
-    </div>
-    {% endfor %}
-  </div>
 
-</div>
-{% endblock %}
+
+
+
+       
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+    </body>
+</html>
+
+
+
+
+
+
