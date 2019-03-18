@@ -6,7 +6,7 @@ from django.forms import ModelForm
 class NewProjectForm(ModelForm):
     class Meta:
         model = Project
-        fields = ('title','description','landing_page')
+        fields = ('title','description','landing_page','live_site')
 
 
 class VoteForm(ModelForm):
