@@ -51,7 +51,7 @@ def send_project(request):
         form = NewProjectForm(request.POST,request.FILES)
 
         if form.is_valid():
-            project = Project(project_title=request.POST['project_title'],landing_page=request.FILES['landing_page'],project_description=request.POST['project_description'],live_site=request.POST['live_site'],user=request.user)
+            project = Project(title=request.POST['title'],landing_page=request.FILES['landing_page'],description=request.POST['description'],live_site=request.POST['live_site'],user=request.user)
             project.save()
             return redirect(reverse('index'))
     else:

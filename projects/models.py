@@ -9,7 +9,7 @@ from tinymce.models import HTMLField
 # Create your models here.
 class UserProfile(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE)
-    profile_pic = ImageField()
+    profile_pic = models.ImageField(upload_to='profile_photos',null=True,blank=True)
     bio = HTMLField()
     contact=models.CharField(max_length=12)
     projects = models.ForeignKey('Project',on_delete=models.CASCADE,null=True)
@@ -31,7 +31,7 @@ class UserProfile(models.Model):
 class Project(models.Model):
     title = models.CharField(max_length=40)
     description = HTMLField()
-    landing_page = ImageField()
+    landing_page = models.ImageField(upload_to='landing_pages')
     live_site = URLOrRelativeURLField()
     user = models.ForeignKey(User,null=True,blank=True,on_delete=models.CASCADE)
     design = models.IntegerField(choices=list(zip(range(0, 11), range(0, 11))), default=0)

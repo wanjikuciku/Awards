@@ -10,7 +10,7 @@
         <hr>
         <div class="text-center card-text">
           {% if profile.profile_pic %}
-          <img src="{{user.profile.pic.cdn_url}}" alt="" height="180px" width="180px" class="profile-pic">
+          <img class="img-responsive" src="{{profile.profile_pic.url}}">
           {% else %}
           <p>You have no profile picture </p>
           {% endif %}

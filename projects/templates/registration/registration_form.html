@@ -11,33 +11,42 @@
     <title>Register</title>
     {% block styles %}
     {% bootstrap_css%}
-    <link rel="stylesheet" href="{% static 'css/login.css'%}">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
 
-    <link href="https://fonts.googleapis.com/css?family=Fruktur" rel="stylesheet">
-
-
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+   
     {% endblock %}
 </head>
 
 <body>
-<div class="m-auto col-xs-10 col-sm-9 col-md-5 col-lg-4 mt-5" style="position:relative;top: 20px;">
-        <div class="card">
-            <div class="card-header">
-                <h3 class="text-center">Awwards</h3>
+<div id="login-overlay" class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                
+                <h4 class="modal-title" id="myModalLabel">Awwards</h4>
             </div>
-            <div class="card-body">
-                <form action="/accounts/register/" method="post">
-                    {% csrf_token %}
-                    {% bootstrap_form form %}
-                    <div class="form-group">
-                        {% block button%}
-                        <button type="submit" class="btn btn-info">Sign Up</button>
-                        {% endblock %}
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="well">
+                            <form action="/accounts/register/" method="post">
+                                {% csrf_token %}
+                                {% bootstrap_form form %}
+                                <div class="form-group">
+                                    {% block button%}
+                                    <button type="submit" class="btn btn-info">Sign Up</button>
+                                    {% endblock %}
+                                </div>
+                            </form>
+                        </div>
                     </div>
-                </form>
-            </div>
+                </div>
+            </div> 
         </div>
-    </div>
+</div>               
     {% block scripts %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     {% bootstrap_javascript %}
